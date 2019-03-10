@@ -1,0 +1,418 @@
+[{"ID": 1,
+   "Name": "Warszawa",
+   "Population": 1676600,
+   "Latitude": 52.26,
+   "Longitude": 21.02},
+ {
+   "ID": 2,
+   "Name": "Lodz",
+   "Population": 776400,
+   "Latitude": 51.77,
+   "Longitude": 19.46
+ },
+ {
+   "ID": 3,
+   "Name": "Krakow",
+   "Population": 757800,
+   "Latitude": 50.06,
+   "Longitude": 19.96
+ },
+ {
+   "ID": 4,
+   "Name": "Wroclaw",
+   "Population": 636800,
+   "Latitude": 51.11,
+   "Longitude": 17.03
+ },
+ {
+   "ID": 5,
+   "Name": "Poznan",
+   "Population": 574100,
+   "Latitude": 52.4,
+   "Longitude": 16.9
+ },
+ {
+   "ID": 6,
+   "Name": "Gdansk",
+   "Population": 462000,
+   "Latitude": 54.36,
+   "Longitude": 18.64
+ },
+ {
+   "ID": 7,
+   "Name": "Szczecin",
+   "Population": 414200,
+   "Latitude": 53.43,
+   "Longitude": 14.53
+ },
+ {
+   "ID": 8,
+   "Name": "Bydgoszcz",
+   "Population": 369500,
+   "Latitude": 53.12,
+   "Longitude": 18.01
+ },
+ {
+   "ID": 9,
+   "Name": "Lublin",
+   "Population": 358400,
+   "Latitude": 51.24,
+   "Longitude": 22.57
+ },
+ {
+   "ID": 10,
+   "Name": "Katowice",
+   "Population": 321100,
+   "Latitude": 50.26,
+   "Longitude": 19.02
+ },
+ {
+   "ID": 11,
+   "Name": "Bialystok",
+   "Population": 291300,
+   "Latitude": 53.14,
+   "Longitude": 23.16
+ },
+ {
+   "ID": 12,
+   "Name": "Gdynia",
+   "Population": 253800,
+   "Latitude": 54.52,
+   "Longitude": 18.53
+ },
+ {
+   "ID": 13,
+   "Name": "Czestochowa",
+   "Population": 249200,
+   "Latitude": 50.81,
+   "Longitude": 19.13
+ },
+ {
+   "ID": 14,
+   "Name": "Sosnowiec",
+   "Population": 229200,
+   "Latitude": 50.28,
+   "Longitude": 19.12
+ },
+ {
+   "ID": 15,
+   "Name": "Radom",
+   "Population": 228100,
+   "Latitude": 51.4,
+   "Longitude": 21.16
+ },
+ {
+   "ID": 16,
+   "Name": "Kielce",
+   "Population": 210000,
+   "Latitude": 50.89,
+   "Longitude": 20.65
+ },
+ {
+   "ID": 17,
+   "Name": "Torun",
+   "Population": 209700,
+   "Latitude": 53.02,
+   "Longitude": 18.61
+ },
+ {
+   "ID": 18,
+   "Name": "Gliwice",
+   "Population": 200700,
+   "Latitude": 50.31,
+   "Longitude": 18.67
+ },
+ {
+   "ID": 19,
+   "Name": "Zabrze",
+   "Population": 193200,
+   "Latitude": 50.3,
+   "Longitude": 18.78
+ },
+ {
+   "ID": 20,
+   "Name": "Bytom",
+   "Population": 190700,
+   "Latitude": 50.35,
+   "Longitude": 18.91
+ },
+ {
+   "ID": 21,
+   "Name": "Bielsko-biala",
+   "Population": 176900,
+   "Latitude": 49.82,
+   "Longitude": 19.05
+ },
+ {
+   "ID": 22,
+   "Name": "Olsztyn",
+   "Population": 172300,
+   "Latitude": 53.78,
+   "Longitude": 20.49
+ },
+ {
+   "ID": 23,
+   "Name": "Rzeszow",
+   "Population": 159000,
+   "Latitude": 50.05,
+   "Longitude": 22
+ },
+ {
+   "ID": 24,
+   "Name": "Ruda slaska",
+   "Population": 147800,
+   "Latitude": 50.3,
+   "Longitude": 18.88
+ },
+ {
+   "ID": 25,
+   "Name": "Rybnik",
+   "Population": 142400,
+   "Latitude": 50.1,
+   "Longitude": 18.55
+ },
+ {
+   "ID": 26,
+   "Name": "Tychy",
+   "Population": 132000,
+   "Latitude": 50.16,
+   "Longitude": 19
+ },
+ {
+   "ID": 27,
+   "Name": "Dabrowa gornicza",
+   "Population": 131100,
+   "Latitude": 50.33,
+   "Longitude": 19.18
+ },
+ {
+   "ID": 28,
+   "Name": "Walbrzych",
+   "Population": 128500,
+   "Latitude": 50.78,
+   "Longitude": 16.28
+ },
+ {
+   "ID": 29,
+   "Name": "Opole",
+   "Population": 128300,
+   "Latitude": 50.68,
+   "Longitude": 17.94
+ },
+ {
+   "ID": 30,
+   "Name": "Plock",
+   "Population": 127900,
+   "Latitude": 52.55,
+   "Longitude": 19.7
+ },
+ {
+   "ID": 31,
+   "Name": "Elblag",
+   "Population": 127800,
+   "Latitude": 54.18,
+   "Longitude": 19.4
+ },
+ {
+   "ID": 32,
+   "Name": "Gorzow wielkopolski",
+   "Population": 125000,
+   "Latitude": 52.74,
+   "Longitude": 15.23
+ },
+ {
+   "ID": 33,
+   "Name": "Wloclawek",
+   "Population": 120700,
+   "Latitude": 52.66,
+   "Longitude": 19.06
+ },
+ {
+   "ID": 34,
+   "Name": "Tarnow",
+   "Population": 118900,
+   "Latitude": 50.01,
+   "Longitude": 20.99
+ },
+ {
+   "ID": 35,
+   "Name": "Zielona gora",
+   "Population": 118300,
+   "Latitude": 51.94,
+   "Longitude": 15.49
+ },
+ {
+   "ID": 36,
+   "Name": "Chorzow",
+   "Population": 115000,
+   "Latitude": 50.3,
+   "Longitude": 19.03
+ },
+ {
+   "ID": 37,
+   "Name": "Kalisz",
+   "Population": 109100,
+   "Latitude": 51.77,
+   "Longitude": 18.1
+ },
+ {
+   "ID": 38,
+   "Name": "Koszalin",
+   "Population": 107900,
+   "Latitude": 54.19,
+   "Longitude": 16.18
+ },
+ {
+   "ID": 39,
+   "Name": "Legnica",
+   "Population": 106400,
+   "Latitude": 51.21,
+   "Longitude": 16.16
+ },
+ {
+   "ID": 40,
+   "Name": "Grudziadz",
+   "Population": 99800,
+   "Latitude": 53.49,
+   "Longitude": 18.75
+ },
+ {
+   "ID": 41,
+   "Name": "Slupsk",
+   "Population": 99300,
+   "Latitude": 54.47,
+   "Longitude": 17.02
+ },
+ {
+   "ID": 42,
+   "Name": "Jaworzno",
+   "Population": 96500,
+   "Latitude": 50.21,
+   "Longitude": 19.27
+ },
+ {
+   "ID": 43,
+   "Name": "Jastrzebie-zdroj",
+   "Population": 96200,
+   "Latitude": 49.99,
+   "Longitude": 18.59
+ },
+ {
+   "ID": 44,
+   "Name": "Jelenia gora",
+   "Population": 88100,
+   "Latitude": 50.91,
+   "Longitude": 15.73
+ },
+ {
+   "ID": 45,
+   "Name": "Nowy sacz",
+   "Population": 84600,
+   "Latitude": 49.63,
+   "Longitude": 20.7
+ },
+ {
+   "ID": 46,
+   "Name": "Konin",
+   "Population": 81700,
+   "Latitude": 52.21,
+   "Longitude": 18.25
+ },
+ {
+   "ID": 47,
+   "Name": "Piotrkow trybunalski",
+   "Population": 80400,
+   "Latitude": 51.41,
+   "Longitude": 19.7
+ },
+ {
+   "ID": 48,
+   "Name": "Lubin",
+   "Population": 77900,
+   "Latitude": 51.4,
+   "Longitude": 16.2
+ },
+ {
+   "ID": 49,
+   "Name": "Inowroclaw",
+   "Population": 77800,
+   "Latitude": 52.78,
+   "Longitude": 18.25
+ },
+ {
+   "ID": 50,
+   "Name": "Siedlce",
+   "Population": 76700,
+   "Latitude": 52.17,
+   "Longitude": 22.28
+ },
+ {
+   "ID": 51,
+   "Name": "Myslowice",
+   "Population": 75400,
+   "Latitude": 50.24,
+   "Longitude": 19.14
+ },
+ {
+   "ID": 52,
+   "Name": "Pila",
+   "Population": 75300,
+   "Latitude": 53.15,
+   "Longitude": 16.74
+ },
+ {
+   "ID": 53,
+   "Name": "Ostrowiec swietokrzyski",
+   "Population": 74600,
+   "Latitude": 50.95,
+   "Longitude": 21.39
+ },
+ {
+   "ID": 54,
+   "Name": "Siemianowice slaskie",
+   "Population": 73500,
+   "Latitude": 50.33,
+   "Longitude": 19.05
+ },
+ {
+   "ID": 55,
+   "Name": "Ostrow wielkopolski",
+   "Population": 73200,
+   "Latitude": 51.66,
+   "Longitude": 17.8
+ },
+ {
+   "ID": 56,
+   "Name": "Pabianice",
+   "Population": 71500,
+   "Latitude": 51.67,
+   "Longitude": 19.35
+ },
+ {
+   "ID": 57,
+   "Name": "Stargard szczecinski",
+   "Population": 71200,
+   "Latitude": 53.34,
+   "Longitude": 15.02
+ },
+ {
+   "ID": 58,
+   "Name": "Gniezno",
+   "Population": 70200,
+   "Latitude": 52.53,
+   "Longitude": 17.61
+ },
+ {
+   "ID": 59,
+   "Name": "Glogow",
+   "Population": 69300,
+   "Latitude": 51.67,
+   "Longitude": 16.08
+ },
+ {
+   "ID": 60,
+   "Name": "Suwalki",
+   "Population": 69000,
+   "Latitude": 54.11,
+   "Longitude": 22.94
+ }]
