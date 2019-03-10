@@ -2,10 +2,8 @@ package com.example.Weather.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import java.util.List;
-
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Current {
+public class Forecast {
     private Standards[] standards;
 
     private Indexes[] indexes;
