@@ -15,6 +15,42 @@
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link rel="stylesheet" th:href="@{/style.css}"/>
+
+
+    <script type="text/javascript" th:inline="javascript" >
+        window.onload = function () {
+            /*<![CDATA[*/
+
+            var listOfPoints = /*[[${listOfPoints}]]*/ 'points';
+            var listOfPointsColors = /*[[${listOfPointsColors}]]*/ 'colors';
+
+            /*]]>*/
+            CanvasJS.addColorSet("greenShades",listOfPointsColors);
+            var dataForChart=[];
+            var chart = new CanvasJS.Chart("chartContainer",
+                {
+                    colorSet: "greenShades",
+
+                    title:{
+                        text: "Custom Color Set"
+                    },
+                    data: [
+                        {
+                            type: "column",
+                            dataPoints: dataForChart
+
+                        }
+                    ]
+                });
+
+            for (var i = 0, len = listOfPoints.length; i < len; i++) {
+                dataForChart.push({x: i,y: listOfPoints[i]});
+            }
+            console.log(dataForChart);
+            chart.render();
+        }
+    </script>
+    <script type="text/javascript" th:src="@{/canvas/canvasjs.min.js}"></script>
 </head>
 <body>
 <div class="container">
@@ -58,8 +94,8 @@
     </div>
 
     <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
-        <div class="col-md-6 px-0">
-            <h1 class="display-4 font-italic">Current Weather</h1>
+        <div class="col-md-12 px-0">
+            <h1 class="display-4 font-italic" th:text="'Current Weather of ' + ${cityName}"></h1>
         </div>
     </div>
 
@@ -81,8 +117,60 @@
         <div class="col-md-6">
             <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                 <div class="col p-4 d-flex flex-column position-static">
-                    <strong class="d-inline-block mb-2 text-success">To</strong>
-                    <h3 th:text="'Date: '+ ${tillDate}"/>
+                    <strong class="d-inline-block mb-2 text-success">Overal information</strong>
+                    <table th:object="${index}">
+                        <tr>
+                            <td class="font-weight-bold">AIR CAQI</td>
+                            <td th:text="*{value}"></td>
+                        </tr>
+                        <tr>
+                            <td class="font-weight-bold">Pollution Level</td>
+                            <td th:text="*{level}"></td>
+                        </tr>
+                        <tr>
+                            <td class="font-weight-bold">Air Quality</td>
+                            <td th:styleappend="'color:'+*{color}+';font-size:35px'"> &#9679;</td>
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="row mb-2">
+        <div class="col-md-6">
+            <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-2 text-primary">Choice City</strong>
+                    <form th:action="@{/choiceCity}" method="post">
+                        <table>
+                            <tr>
+                                <td>
+                                    <select title="choice City" style="width:200px !important" name="cityId">
+                                        <option th:each="city : ${cities}"
+                                                th:value="${city.getLongitude()}+','+${city.getLatitude()}+','+${city.getName()}"
+                                                th:text="${city.getId()}+ ' ' + ${city.getName()}"></option>
+                                    </select>
+
+                                </td>
+                                <td>
+                                    <input type="submit">
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-2 text-success">??</strong>
+
+                    <div id="chartContainer" style="height: 300px; width: 100%;">
+                    </div>
+
                 </div>
 
             </div>
@@ -98,5 +186,6 @@
 <footer class="blog-footer">
 
 </footer>
+
 </body>
 </html>
