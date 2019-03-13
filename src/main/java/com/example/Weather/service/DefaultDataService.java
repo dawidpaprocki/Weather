@@ -1,19 +1,28 @@
 package com.example.Weather.service;
 
 import com.example.Weather.RequestHandler;
+import com.example.Weather.model.Cities;
 import com.example.Weather.model.Data;
-import com.example.Weather.repository.DefaultDataMapper;
+import com.example.Weather.repository.CitiesMapperFormFile;
+import com.example.Weather.repository.DataMapper;
 import org.springframework.stereotype.Service;
 
 @Service
 public class DefaultDataService implements DataService {
-    private DefaultDataMapper defaultDataMapper;
+    private DataMapper dataMapper;
+    private CitiesMapperFormFile citiesMapperFormFile;
 
-    public DefaultDataService(DefaultDataMapper defaultDataMapper) {
-        this.defaultDataMapper = defaultDataMapper;
+    public DefaultDataService(DataMapper dataMapper, CitiesMapperFormFile citiesMapperFormFile) {
+        this.dataMapper = dataMapper;
+        this.citiesMapperFormFile = citiesMapperFormFile;
     }
 
     public Data getData(Double latitude, Double longitude) {
-        return defaultDataMapper.MapObject(new RequestHandler(), latitude, longitude);
+        return dataMapper.MapObject(new RequestHandler(), latitude, longitude);
+    }
+
+    @Override
+    public Cities[] getDataFromFile() {
+        return citiesMapperFormFile.GetCities();
     }
 }
