@@ -33,3 +33,4 @@ README.html
 
 *.jar
 .mvn
+src/main/resources/static/canvas/examples
