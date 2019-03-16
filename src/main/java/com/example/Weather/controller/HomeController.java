@@ -1,10 +1,7 @@
 package com.example.Weather.controller;
 
 import com.example.Weather.model.*;
-import com.example.Weather.service.CurrentService;
-import com.example.Weather.service.DataService;
-import com.example.Weather.service.ForecastService;
-import com.example.Weather.service.HistoryService;
+import com.example.Weather.service.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -16,13 +13,15 @@ public class HomeController {
     private DataService dataService;
     private HistoryService historyService;
     private ForecastService forecastService;
+    private DefaultStandardsService defaultStandardsService;
 
 
-    public HomeController(CurrentService currentService, DataService dataService, HistoryService historyService, ForecastService forecastService) {
+    public HomeController(CurrentService currentService, DataService dataService, HistoryService historyService, ForecastService forecastService, DefaultStandardsService defaultStandardsService) {
         this.currentService = currentService;
         this.dataService = dataService;
         this.historyService = historyService;
         this.forecastService = forecastService;
+        this.defaultStandardsService = defaultStandardsService;
     }
 
 
@@ -34,6 +33,10 @@ public class HomeController {
 
         model.addAttribute("values", currentService.getValue(data));
         model.addAttribute("tillDate", currentService.getTillDateTime(data));
+        model.addAttribute("standardsPM25Name", defaultStandardsService.getCurrentStandardName(data,"PM25"));
+        model.addAttribute("standardsPM25Percent", defaultStandardsService.getCurrentStandardPercent(data,"PM25"));
+        model.addAttribute("standardsPM10Name", defaultStandardsService.getCurrentStandardName(data,"PM10"));
+        model.addAttribute("standardsPM10Percent", defaultStandardsService.getCurrentStandardPercent(data,"PM10"));
         Indexes[] overAllInformation = currentService.getOverAllInformation(data);
         model.addAttribute("index", overAllInformation[0]);
         model.addAttribute("cities", dataService.getDataFromFile());
@@ -54,6 +57,10 @@ public class HomeController {
 
         model.addAttribute("values", currentService.getValue(data));
         model.addAttribute("tillDate", currentService.getTillDateTime(data));
+        model.addAttribute("standardsPM25Name", defaultStandardsService.getCurrentStandardName(data,"PM25"));
+        model.addAttribute("standardsPM25Percent", defaultStandardsService.getCurrentStandardPercent(data,"PM25"));
+        model.addAttribute("standardsPM10Name", defaultStandardsService.getCurrentStandardName(data,"PM10"));
+        model.addAttribute("standardsPM10Percent", defaultStandardsService.getCurrentStandardPercent(data,"PM10"));
         Indexes[] overAllInformation = currentService.getOverAllInformation(data);
         model.addAttribute("index", overAllInformation[0]);
         model.addAttribute("cities", dataService.getDataFromFile());
