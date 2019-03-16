@@ -25,24 +25,24 @@
             var listOfPointsHistoricalForecast = /*[[${listOfPointsForecast}]]*/ 'pointsForecast';
             var listOfPointsColorsForecast = /*[[${listOfPointsColorsForecast}]]*/ 'colorsForecast';
             /*]]>*/
-            data(listOfPointsHistorical, listOfPointsColorsHistorical,"chartContainerHistorical");
-            data(listOfPointsHistoricalForecast,listOfPointsColorsForecast,"chartContainerForecast")
+            data(listOfPointsHistorical, listOfPointsColorsHistorical, "chartContainerHistorical", -23);
+            data(listOfPointsHistoricalForecast, listOfPointsColorsForecast, "chartContainerForecast", 1)
         };
 
-        function data(listOfPoints, listOfPointsColors,chartContainerName) {
+        function data(listOfPoints, listOfPointsColors, chartContainerName, type) {
             CanvasJS.addColorSet("greenShades", listOfPointsColors);
             var dataForChart = [];
             var chart = new CanvasJS.Chart(chartContainerName,
                 {
                     colorSet: "greenShades",
                     data: [{
-                            type: "column",
-                            dataPoints: dataForChart
-                        }]
+                        type: "column",
+                        dataPoints: dataForChart
+                    }]
                 });
             var currentDate = new Date();
             for (var i = 0, len = listOfPoints.length; i < len; i++) {
-                currentDate.setHours(currentDate.getHours() - 23);
+                currentDate.setHours(currentDate.getHours() + type);
                 dataForChart.push({y: listOfPoints[i], label: currentDate.getHours()});
             }
             console.log(dataForChart);
@@ -104,6 +104,8 @@
                         <tr th:each="value : ${values}">
                             <td th:text="${value.getName()}" class="font-weight-bold"></td>
                             <td th:text="${value.getValue()}"></td>
+                            <td th:if="${value.getName().equals('PM25')}" th:text="${standardsPM25Percent}+'%  of WHO Standards'"></td>
+                            <td th:if="${value.getName().equals('PM10')}" th:text="${standardsPM10Percent}+'%  of WHO Standards'"></td>
                         </tr>
                     </table>
                 </div>
@@ -170,23 +172,8 @@
         <div class="col-md-6">
             <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                 <div class="col p-4 d-flex flex-column position-static">
-                    <strong class="d-inline-block mb-2 text-primary">Choice City</strong>
-                    <form th:action="@{/choiceCity}" method="post">
-                        <table>
-                            <tr>
-                                <td>
-                                    <select title="Chose City" style="width:200px !important" name="cityId">
-                                        <option th:each="city : ${cities}"
-                                                th:value="${city.getLongitude()}+','+${city.getLatitude()}+','+${city.getName()}"
-                                                th:text="${city.getId()}+ ' ' + ${city.getName()}"></option>
-                                    </select>
-                                </td>
-                                <td>
-                                    <input type="submit">
-                                </td>
-                            </tr>
-                        </table>
-                    </form>
+                    <strong class="d-inline-block mb-2 text-primary"></strong>
+
                 </div>
 
             </div>
@@ -194,7 +181,7 @@
         <div class="col-md-6">
             <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                 <div class="col p-4 d-flex flex-column position-static">
-                    <strong class="d-inline-block mb-2 text-success">Historical data</strong>
+                    <strong class="d-inline-block mb-2 text-success">Forecast</strong>
                     <div id="chartContainerForecast" style="height: 300px; width: 100%;">
                     </div>
                 </div>
