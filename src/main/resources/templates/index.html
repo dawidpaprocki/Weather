@@ -17,34 +17,33 @@
     <link rel="stylesheet" th:href="@{/style.css}"/>
 
 
-    <script type="text/javascript" th:inline="javascript" >
+    <script type="text/javascript" th:inline="javascript">
         window.onload = function () {
             /*<![CDATA[*/
-
-            var listOfPoints = /*[[${listOfPoints}]]*/ 'points';
-            var listOfPointsColors = /*[[${listOfPointsColors}]]*/ 'colors';
-
+            var listOfPointsHistorical = /*[[${listOfPointsHistorical}]]*/ 'pointsHistorical';
+            var listOfPointsColorsHistorical = /*[[${listOfPointsColorsHistorical}]]*/ 'colorsHistorical';
+            var listOfPointsHistoricalForecast = /*[[${listOfPointsForecast}]]*/ 'pointsForecast';
+            var listOfPointsColorsForecast = /*[[${listOfPointsColorsForecast}]]*/ 'colorsForecast';
             /*]]>*/
-            CanvasJS.addColorSet("greenShades",listOfPointsColors);
-            var dataForChart=[];
-            var chart = new CanvasJS.Chart("chartContainer",
+            data(listOfPointsHistorical, listOfPointsColorsHistorical,"chartContainerHistorical");
+            data(listOfPointsHistoricalForecast,listOfPointsColorsForecast,"chartContainerForecast")
+        };
+
+        function data(listOfPoints, listOfPointsColors,chartContainerName) {
+            CanvasJS.addColorSet("greenShades", listOfPointsColors);
+            var dataForChart = [];
+            var chart = new CanvasJS.Chart(chartContainerName,
                 {
                     colorSet: "greenShades",
-
-                    title:{
-                        text: "Custom Color Set"
-                    },
-                    data: [
-                        {
+                    data: [{
                             type: "column",
                             dataPoints: dataForChart
-
-                        }
-                    ]
+                        }]
                 });
-
+            var currentDate = new Date();
             for (var i = 0, len = listOfPoints.length; i < len; i++) {
-                dataForChart.push({x: i,y: listOfPoints[i]});
+                currentDate.setHours(currentDate.getHours() - 23);
+                dataForChart.push({y: listOfPoints[i], label: currentDate.getHours()});
             }
             console.log(dataForChart);
             chart.render();
@@ -75,7 +74,6 @@
             </div>
         </div>
     </header>
-
     <div class="nav-scroller py-1 mb-2">
         <nav class="nav d-flex justify-content-between">
             <!--<a class="p-2 text-muted" href="#">World</a>-->
@@ -92,13 +90,11 @@
             <!--<a class="p-2 text-muted" href="#">Travel</a>-->
         </nav>
     </div>
-
     <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
         <div class="col-md-12 px-0">
             <h1 class="display-4 font-italic" th:text="'Current Weather of ' + ${cityName}"></h1>
         </div>
     </div>
-
     <div class="row mb-2">
         <div class="col-md-6">
             <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
@@ -111,13 +107,12 @@
                         </tr>
                     </table>
                 </div>
-
             </div>
         </div>
         <div class="col-md-6">
             <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                 <div class="col p-4 d-flex flex-column position-static">
-                    <strong class="d-inline-block mb-2 text-success">Overal information</strong>
+                    <strong class="d-inline-block mb-2 text-success">Overall information</strong>
                     <table th:object="${index}">
                         <tr>
                             <td class="font-weight-bold">AIR CAQI</td>
@@ -133,7 +128,6 @@
                         </tr>
                     </table>
                 </div>
-
             </div>
         </div>
     </div>
@@ -146,12 +140,11 @@
                         <table>
                             <tr>
                                 <td>
-                                    <select title="choice City" style="width:200px !important" name="cityId">
+                                    <select title="Chose City" style="width:200px !important" name="cityId">
                                         <option th:each="city : ${cities}"
                                                 th:value="${city.getLongitude()}+','+${city.getLatitude()}+','+${city.getName()}"
                                                 th:text="${city.getId()}+ ' ' + ${city.getName()}"></option>
                                     </select>
-
                                 </td>
                                 <td>
                                     <input type="submit">
@@ -166,13 +159,45 @@
         <div class="col-md-6">
             <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                 <div class="col p-4 d-flex flex-column position-static">
-                    <strong class="d-inline-block mb-2 text-success">??</strong>
-
-                    <div id="chartContainer" style="height: 300px; width: 100%;">
+                    <strong class="d-inline-block mb-2 text-success">Historical data</strong>
+                    <div id="chartContainerHistorical" style="height: 300px; width: 100%;">
                     </div>
-
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-2">
+        <div class="col-md-6">
+            <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-2 text-primary">Choice City</strong>
+                    <form th:action="@{/choiceCity}" method="post">
+                        <table>
+                            <tr>
+                                <td>
+                                    <select title="Chose City" style="width:200px !important" name="cityId">
+                                        <option th:each="city : ${cities}"
+                                                th:value="${city.getLongitude()}+','+${city.getLatitude()}+','+${city.getName()}"
+                                                th:text="${city.getId()}+ ' ' + ${city.getName()}"></option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input type="submit">
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
                 </div>
 
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-2 text-success">Historical data</strong>
+                    <div id="chartContainerForecast" style="height: 300px; width: 100%;">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
