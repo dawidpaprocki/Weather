@@ -5,6 +5,8 @@ import com.example.Weather.model.Standards;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
+import java.util.Optional;
+
 @Service
 public class DefaultStandardsService implements StandardsService {
     private CurrentService currentService;
@@ -17,21 +19,24 @@ public class DefaultStandardsService implements StandardsService {
     @Override
     public String getCurrentStandardName(Data data, String pollutantName) {
         Standards[] whoStandards = currentService.getWHOStandards(data);
-        return Arrays.stream(whoStandards).filter(standards -> standards.getPollutant()
+        Optional<Standards> optionalName = Arrays.stream(whoStandards).filter(standards -> standards.getPollutant()
                 .equals(pollutantName))
-                .findFirst()
-                .get()
-                .getName();
+                .findFirst();
+        if(optionalName.isPresent()){
+            return optionalName.get().getName();
+        }else {
+            return "Lack of standards";
+        }
+
     }
 
     @Override
     public Double getCurrentStandardPercent(Data data, String pollutantName) {
         Standards[] whoStandards = currentService.getWHOStandards(data);
-        String percentOfStandard = Arrays.stream(whoStandards).filter(standards -> standards.getPollutant()
+
+        Optional<Standards> optionalStandard = Arrays.stream(whoStandards).filter(standards -> standards.getPollutant()
                 .equals(pollutantName))
-                .findFirst()
-                .get()
-                .getPercent();
-        return Double.parseDouble(percentOfStandard);
+                .findFirst();
+        return optionalStandard.map(standards -> Double.parseDouble(standards.getPercent())).orElse(0.0);
     }
 }
