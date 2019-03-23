@@ -1,10 +1,14 @@
 package com.example.Weather.controller;
 
-import com.example.Weather.model.*;
+import com.example.Weather.model.Data;
+import com.example.Weather.model.Indexes;
 import com.example.Weather.service.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/")
