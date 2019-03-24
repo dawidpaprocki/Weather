@@ -1,10 +1,7 @@
 package com.example.Weather.service;
 
 import com.example.Weather.Enums.DataResponse;
-import com.example.Weather.model.Current;
-import com.example.Weather.model.Data;
-import com.example.Weather.model.Standards;
-import com.example.Weather.model.Values;
+import com.example.Weather.model.*;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -37,9 +34,9 @@ public class DefaultCurrentServiceTest {
     }
 
     @Test
-    public void getValueTestTrue() {
+    public void TestGetValueTrue() {
         // Given
-        String testName = "testValue";
+        String testName = "Test Value";
         Values values = Values.builder()
                 .name(testName)
                 .build();
@@ -52,7 +49,7 @@ public class DefaultCurrentServiceTest {
         assertEquals(testName,receivedValueName);
     }
     @Test
-    public void getValueTestFalse() {
+    public void TestGetValueTestFalse() {
         // Given
         // When
         String valueName = defaultCurrentService.getValue(data)[0].getName();
@@ -61,9 +58,9 @@ public class DefaultCurrentServiceTest {
     }
 
     @Test
-    public void getWHOStandardsTrue() {
+    public void TestGetWHOStandardsTestTrue() {
         // Given
-        String testName = "test Standards";
+        String testName = "Test Standards";
         Standards standards = Standards.builder()
                 .name(testName)
                 .build();
@@ -75,9 +72,9 @@ public class DefaultCurrentServiceTest {
         // Then
         assertEquals(testName,receivedStandardsName);
     }
-    
+
     @Test
-    public void getWHOStandardsFalse() {
+    public void TestGetWHOStandardsFalse() {
         // Given
         // When
         String receivedStandardsName = defaultCurrentService.getWHOStandards(data)[0].getName();
@@ -86,17 +83,55 @@ public class DefaultCurrentServiceTest {
     }
 
     @Test
-    public void getOverAllInformation() {
-        fail();
+    public void TestGetOverAllInformationTrue() {
+        // Given
+        String testName = "Test Indexes";
+        Indexes indexes = Indexes.builder()
+                .name(testName)
+                .build();
+        Indexes[] indexesForTest = new Indexes[]{indexes};
+        // When
+        when(current.getIndexes())
+                .thenReturn(indexesForTest);
+        String receivedIndexesName = defaultCurrentService.getOverAllInformation(data)[0].getName();
+        // Then
+        assertEquals(testName,receivedIndexesName);
     }
 
     @Test
-    public void getTillDateTime() {
-        fail();
+    public void TestGetOverAllInformationFalse() {
+        // Given
+        // When
+        String receivedIndexesName = defaultCurrentService.getOverAllInformation(data)[0].getName();
+        // Then
+        assertEquals(lackOfData,receivedIndexesName);
     }
 
     @Test
-    public void getFromDateTime() {
-        fail();
+    public void TestGetDateTimeTrue() {
+        // Given
+        String testDate = "Test date";
+        // When
+        when(current.getFromDateTime())
+                .thenReturn(testDate);
+        when(current.getTillDateTime())
+                .thenReturn(testDate);
+        String fromDateTimeFrom = defaultCurrentService.getFromDateTime(data);
+        String fromDateTimeTill = defaultCurrentService.getTillDateTime(data);
+        // Then
+        assertEquals(testDate,fromDateTimeFrom);
+        assertEquals(testDate,fromDateTimeTill);
+    }
+
+    @Test
+    public void TestGetDateTimeFalse() {
+        // Given
+        // When
+        String fromDateTimeFrom = defaultCurrentService.getFromDateTime(data);
+        String fromDateTimeTill = defaultCurrentService.getTillDateTime(data);
+        // Then
+        assertEquals(lackOfData,fromDateTimeFrom);
+        assertEquals(lackOfData,fromDateTimeTill);
+
     }
 }
