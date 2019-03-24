@@ -10,6 +10,6 @@ import lombok.Data;
 public class Standards {
     private String name;
     private String limit;
-    private String percent;
+    private Double percent;
     private String pollutant;
 }

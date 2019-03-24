@@ -19,12 +19,12 @@ import static org.mockito.Mockito.when;
 public class DefaultCurrentServiceTest {
 
     @Mock
-    Data data;
+    private Data data;
     @Mock
-    Current current;
+    private Current current;
 
     @InjectMocks
-    DefaultCurrentService defaultCurrentService;
+    private DefaultCurrentService defaultCurrentService;
 
     @Before
     public void setUp(){
@@ -60,8 +60,9 @@ public class DefaultCurrentServiceTest {
     }
 
     @Test
-    public void getWHOStandards() {
+    public void getWHOStandardsTrue() {
         // Given
+
         // When
         // Then
     }

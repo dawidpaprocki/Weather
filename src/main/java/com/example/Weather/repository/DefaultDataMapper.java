@@ -19,7 +19,7 @@ public class DefaultDataMapper implements DataMapper {
             return  mapper.readValue(requestHandler.getInputStream(airlyApiUrl,apiKey), Data.class);
         } catch (IOException e) {
             e.printStackTrace();
-            return new Data();
+            return Data.builder().build();
         }
     }
 

@@ -1,6 +1,8 @@
 package com.example.Weather.service;
 
+import com.example.Weather.Enums.DataResponse;
 import com.example.Weather.model.Data;
+import com.example.Weather.model.Indexes;
 import com.example.Weather.model.Standards;
 import org.springframework.stereotype.Service;
 
@@ -25,9 +27,8 @@ public class DefaultStandardsService implements StandardsService {
         if(optionalName.isPresent()){
             return optionalName.get().getName();
         }else {
-            return "Lack of standards";
+            return DataResponse.LACKOFDATA.toString();
         }
-
     }
 
     @Override
@@ -37,6 +38,6 @@ public class DefaultStandardsService implements StandardsService {
         Optional<Standards> optionalStandard = Arrays.stream(whoStandards).filter(standards -> standards.getPollutant()
                 .equals(pollutantName))
                 .findFirst();
-        return optionalStandard.map(standards -> Double.parseDouble(standards.getPercent())).orElse(0.0);
+        return optionalStandard.map(Standards::getPercent).orElse(0.0);
     }
 }
