@@ -57,9 +57,9 @@ public class WeatherApplicationTests {
 
     private void currentServiceMock() {
         when(dataService.getData(1.0,1.0))
-                .thenReturn(new Data());
-        when(currentService.getOverAllInformation(new Data()))
-                .thenReturn(new Indexes[]{new Indexes()});
+                .thenReturn(Data.builder().build());
+        when(currentService.getOverAllInformation(Data.builder().build()))
+                .thenReturn(new Indexes[]{Indexes.builder().build()});
     }
 
     @Test
