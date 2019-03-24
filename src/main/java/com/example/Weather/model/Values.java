@@ -1,10 +1,11 @@
 package com.example.Weather.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Builder;
 import lombok.Data;
-import org.aspectj.lang.annotation.DeclareAnnotation;
 
 @Data
+@Builder(toBuilder = true)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Values {
     private String name;

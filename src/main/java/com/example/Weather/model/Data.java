@@ -1,10 +1,9 @@
 package com.example.Weather.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-import javax.persistence.Entity;
-import java.util.List;
+import lombok.Builder;
 @lombok.Data
+@Builder(toBuilder = true)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Data {
     private Current current;
