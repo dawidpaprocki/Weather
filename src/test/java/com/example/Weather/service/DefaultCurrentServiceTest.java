@@ -3,6 +3,7 @@ package com.example.Weather.service;
 import com.example.Weather.Enums.DataResponse;
 import com.example.Weather.model.Current;
 import com.example.Weather.model.Data;
+import com.example.Weather.model.Standards;
 import com.example.Weather.model.Values;
 import org.junit.Before;
 import org.junit.Test;
@@ -26,9 +27,13 @@ public class DefaultCurrentServiceTest {
     @InjectMocks
     private DefaultCurrentService defaultCurrentService;
 
+    private String lackOfData = DataResponse.LACKOFDATA.toString();
+
     @Before
     public void setUp(){
         MockitoAnnotations.initMocks(this);
+        when(data.getCurrent())
+                .thenReturn(current);
     }
 
     @Test
@@ -40,8 +45,6 @@ public class DefaultCurrentServiceTest {
                 .build();
         Values[] valuesForTest = new Values[]{values};
         // When
-        when(data.getCurrent())
-                .thenReturn(current);
         when(current.getValues())
                 .thenReturn(valuesForTest);
         String receivedValueName = defaultCurrentService.getValue(data)[0].getName();
@@ -52,19 +55,34 @@ public class DefaultCurrentServiceTest {
     public void getValueTestFalse() {
         // Given
         // When
-        when(data.getCurrent())
-                .thenReturn(current);
         String valueName = defaultCurrentService.getValue(data)[0].getName();
         // Then
-        assertEquals(DataResponse.LACKOFDATA.toString(),valueName);
+        assertEquals(lackOfData,valueName);
     }
 
     @Test
     public void getWHOStandardsTrue() {
         // Given
-
+        String testName = "test Standards";
+        Standards standards = Standards.builder()
+                .name(testName)
+                .build();
+        Standards[] standardsForTest = new Standards[]{standards};
         // When
+        when(current.getStandards())
+                .thenReturn(standardsForTest);
+        String receivedStandardsName = defaultCurrentService.getWHOStandards(data)[0].getName();
         // Then
+        assertEquals(testName,receivedStandardsName);
+    }
+    
+    @Test
+    public void getWHOStandardsFalse() {
+        // Given
+        // When
+        String receivedStandardsName = defaultCurrentService.getWHOStandards(data)[0].getName();
+        // Then
+        assertEquals(lackOfData,receivedStandardsName);
     }
 
     @Test
