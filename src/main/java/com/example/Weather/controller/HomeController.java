@@ -37,9 +37,9 @@ public class HomeController {
 
         model.addAttribute("values", currentService.getValue(data));
         model.addAttribute("tillDate", currentService.getTillDateTime(data));
-        model.addAttribute("standardsPM25Name", defaultStandardsService.getStandardName(data,"PM25"));
+        model.addAttribute("standardsPM25Name", defaultStandardsService.getStandardPollutantName(data,"PM25"));
         model.addAttribute("standardsPM25Percent", defaultStandardsService.getStandardPercent(data,"PM25"));
-        model.addAttribute("standardsPM10Name", defaultStandardsService.getStandardName(data,"PM10"));
+        model.addAttribute("standardsPM10Name", defaultStandardsService.getStandardPollutantName(data,"PM10"));
         model.addAttribute("standardsPM10Percent", defaultStandardsService.getStandardPercent(data,"PM10"));
         Indexes[] overAllInformation = currentService.getOverAllInformation(data);
         model.addAttribute("index", overAllInformation[0]);
@@ -61,9 +61,9 @@ public class HomeController {
 
         model.addAttribute("values", currentService.getValue(data));
         model.addAttribute("tillDate", currentService.getTillDateTime(data));
-        model.addAttribute("standardsPM25Name", defaultStandardsService.getStandardName(data,"PM25"));
+        model.addAttribute("standardsPM25Name", defaultStandardsService.getStandardPollutantName(data,"PM25"));
         model.addAttribute("standardsPM25Percent", defaultStandardsService.getStandardPercent(data,"PM25"));
-        model.addAttribute("standardsPM10Name", defaultStandardsService.getStandardName(data,"PM10"));
+        model.addAttribute("standardsPM10Name", defaultStandardsService.getStandardPollutantName(data,"PM10"));
         model.addAttribute("standardsPM10Percent", defaultStandardsService.getStandardPercent(data,"PM10"));
         Indexes[] overAllInformation = currentService.getOverAllInformation(data);
         model.addAttribute("index", overAllInformation[0]);
