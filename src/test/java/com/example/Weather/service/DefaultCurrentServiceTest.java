@@ -1,5 +1,6 @@
 package com.example.Weather.service;
 
+import com.example.Weather.Enums.DataResponse;
 import com.example.Weather.model.Current;
 import com.example.Weather.model.Data;
 import com.example.Weather.model.Values;
@@ -31,24 +32,38 @@ public class DefaultCurrentServiceTest {
     }
 
     @Test
-    public void getValueTest() {
+    public void getValueTestTrue() {
         // Given
-        Values values = new Values();
-        values.setName("testValue");
-        Values[] values1 = new Values[]{values};
+        String testName = "testValue";
+        Values values = Values.builder()
+                .name(testName)
+                .build();
+        Values[] valuesForTest = new Values[]{values};
         // When
         when(data.getCurrent())
                 .thenReturn(current);
         when(current.getValues())
-                .thenReturn(values1);
+                .thenReturn(valuesForTest);
+        String receivedValueName = defaultCurrentService.getValue(data)[0].getName();
+        // Then
+        assertEquals(testName,receivedValueName);
+    }
+    @Test
+    public void getValueTestFalse() {
+        // Given
+        // When
+        when(data.getCurrent())
+                .thenReturn(current);
         String valueName = defaultCurrentService.getValue(data)[0].getName();
         // Then
-        assertEquals("testValue",valueName);
+        assertEquals(DataResponse.LACKOFDATA.toString(),valueName);
     }
 
     @Test
     public void getWHOStandards() {
-        fail();
+        // Given
+        // When
+        // Then
     }
 
     @Test
