@@ -19,7 +19,7 @@ public class DefaultStandardsService implements StandardsService {
 
 
     @Override
-    public String getCurrentStandardName(Data data, String pollutantName) {
+    public String getStandardName(Data data, String pollutantName) {
         Standards[] whoStandards = currentService.getWHOStandards(data);
         Optional<Standards> optionalName = Arrays.stream(whoStandards).filter(standards -> standards.getPollutant()
                 .equals(pollutantName))
@@ -32,7 +32,7 @@ public class DefaultStandardsService implements StandardsService {
     }
 
     @Override
-    public Double getCurrentStandardPercent(Data data, String pollutantName) {
+    public Double getStandardPercent(Data data, String pollutantName) {
         Standards[] whoStandards = currentService.getWHOStandards(data);
 
         Optional<Standards> optionalStandard = Arrays.stream(whoStandards).filter(standards -> standards.getPollutant()

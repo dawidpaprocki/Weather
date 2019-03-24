@@ -8,43 +8,49 @@ import java.util.Optional;
 
 @Component
 public class DefaultCurrentService implements CurrentService {
-    private String LackOfDataEnum = DataResponse.LACKOFDATA.toString();
+    private String lackOfDataEnum = DataResponse.LACKOFDATA.toString();
 
     public Values[] getValue(Data data) {
         Optional<Values[]> optionalValues = Optional.ofNullable(data.getCurrent().getValues());
-
         Values emptyJSONValues = Values.builder()
-                .name(LackOfDataEnum)
-                .value(LackOfDataEnum)
+                .name(lackOfDataEnum)
+                .value(lackOfDataEnum)
                 .build();
         return optionalValues.orElse(new Values[]{emptyJSONValues}) ;
     }
 
     public Standards[] getWHOStandards(Data data) {
         Optional<Standards[]> optionalStandards = Optional.ofNullable(data.getCurrent().getStandards());
-
-        return data.getCurrent().getStandards();
+        Standards emptyJSONStandards = Standards.builder()
+                .name(lackOfDataEnum)
+                .limit("0")
+                .pollutant(lackOfDataEnum)
+                .percent(0.0)
+                .build();
+        return optionalStandards.orElse(new Standards[]{emptyJSONStandards});
     }
 
     public Indexes[] getOverAllInformation(Data data) {
-        Optional<Indexes[]> indexes = Optional.ofNullable(data.getCurrent().getIndexes());
+        Optional<Indexes[]> optionalIndexes = Optional.ofNullable(data.getCurrent().getIndexes());
         Indexes emptyJSONIndexes = Indexes.builder()
                 .color("")
-                .advice(LackOfDataEnum)
-                .description(LackOfDataEnum)
-                .level(LackOfDataEnum)
-                .name(LackOfDataEnum)
-                .value(LackOfDataEnum)
+                .advice(lackOfDataEnum)
+                .description(lackOfDataEnum)
+                .level(lackOfDataEnum)
+                .name(lackOfDataEnum)
+                .value(lackOfDataEnum)
                 .build();
-        return indexes.orElse(new Indexes[]{emptyJSONIndexes});
+        return optionalIndexes.orElse(new Indexes[]{emptyJSONIndexes});
     }
 
     public String getTillDateTime(Data data) {
-        return data.getCurrent().getTillDateTime();
+        Optional<String> optionalString = Optional.ofNullable(data.getCurrent().getTillDateTime());
+        return optionalString.orElse(lackOfDataEnum);
     }
 
     public String getFromDateTime(Data data) {
-        return data.getCurrent().getFromDateTime();
+        Optional<String> optionalString = Optional.ofNullable(data.getCurrent().getFromDateTime());
+        return optionalString.orElse(lackOfDataEnum);
     }
 
 

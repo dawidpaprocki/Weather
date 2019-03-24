@@ -37,10 +37,10 @@ public class HomeController {
 
         model.addAttribute("values", currentService.getValue(data));
         model.addAttribute("tillDate", currentService.getTillDateTime(data));
-        model.addAttribute("standardsPM25Name", defaultStandardsService.getCurrentStandardName(data,"PM25"));
-        model.addAttribute("standardsPM25Percent", defaultStandardsService.getCurrentStandardPercent(data,"PM25"));
-        model.addAttribute("standardsPM10Name", defaultStandardsService.getCurrentStandardName(data,"PM10"));
-        model.addAttribute("standardsPM10Percent", defaultStandardsService.getCurrentStandardPercent(data,"PM10"));
+        model.addAttribute("standardsPM25Name", defaultStandardsService.getStandardName(data,"PM25"));
+        model.addAttribute("standardsPM25Percent", defaultStandardsService.getStandardPercent(data,"PM25"));
+        model.addAttribute("standardsPM10Name", defaultStandardsService.getStandardName(data,"PM10"));
+        model.addAttribute("standardsPM10Percent", defaultStandardsService.getStandardPercent(data,"PM10"));
         Indexes[] overAllInformation = currentService.getOverAllInformation(data);
         model.addAttribute("index", overAllInformation[0]);
         model.addAttribute("cities", dataService.getDataFromFile());
@@ -61,10 +61,10 @@ public class HomeController {
 
         model.addAttribute("values", currentService.getValue(data));
         model.addAttribute("tillDate", currentService.getTillDateTime(data));
-        model.addAttribute("standardsPM25Name", defaultStandardsService.getCurrentStandardName(data,"PM25"));
-        model.addAttribute("standardsPM25Percent", defaultStandardsService.getCurrentStandardPercent(data,"PM25"));
-        model.addAttribute("standardsPM10Name", defaultStandardsService.getCurrentStandardName(data,"PM10"));
-        model.addAttribute("standardsPM10Percent", defaultStandardsService.getCurrentStandardPercent(data,"PM10"));
+        model.addAttribute("standardsPM25Name", defaultStandardsService.getStandardName(data,"PM25"));
+        model.addAttribute("standardsPM25Percent", defaultStandardsService.getStandardPercent(data,"PM25"));
+        model.addAttribute("standardsPM10Name", defaultStandardsService.getStandardName(data,"PM10"));
+        model.addAttribute("standardsPM10Percent", defaultStandardsService.getStandardPercent(data,"PM10"));
         Indexes[] overAllInformation = currentService.getOverAllInformation(data);
         model.addAttribute("index", overAllInformation[0]);
         model.addAttribute("cities", dataService.getDataFromFile());
