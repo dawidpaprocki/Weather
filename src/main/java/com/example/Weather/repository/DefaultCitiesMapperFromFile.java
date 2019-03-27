@@ -17,7 +17,6 @@ public class DefaultCitiesMapperFromFile implements  CitiesMapperFormFile{
 
         try {
              File initialFile = new File("src/main/resources/static/Cities.json");
-            InputStream targetStream = new FileInputStream(initialFile);
             return mapper.readValue(initialFile, Cities[].class);
         } catch (IOException e) {
             e.printStackTrace();

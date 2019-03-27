@@ -23,14 +23,11 @@ public class DefaultStandardServiceTest {
 
     @Mock
     private Data data;
-    @Mock
-    private Current current;
+
     @Mock
     private CurrentService currentService;
     @InjectMocks
     private DefaultStandardsService defaultStandardsService;
-
-    private String lackOfData = DataResponse.LACKOFDATA.toString();
 
     @Before
     public void setUp(){

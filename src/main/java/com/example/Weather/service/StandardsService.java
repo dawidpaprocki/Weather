@@ -4,7 +4,7 @@ import com.example.Weather.model.Data;
 import com.example.Weather.model.Indexes;
 
 public interface StandardsService {
-   String getStandardName(Data data, String pollutantName);
+   String getStandardPollutantName(Data data, String pollutantName);
    Double getStandardPercent(Data data, String pollutantName);
 
 }

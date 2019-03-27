@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class DefaultCAQIData implements GetCAQIService {
+public class DefaultCAQIService implements GetCAQIService {
 
     public Double[] getCAQI(Data data, List<Indexes[]> listOfIndexes ) {
         List<Double> resultListOfIndexValue = new ArrayList();

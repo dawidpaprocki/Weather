@@ -16,6 +16,7 @@ public class DefaultDataMapper implements DataMapper {
     public Data MapObject(RequestHandler requestHandler,Double latitude,Double longitude  ) {
         String airlyApiUrl = UrlCreator(latitude, longitude);
         try {
+
             return  mapper.readValue(requestHandler.getInputStream(airlyApiUrl,apiKey), Data.class);
         } catch (IOException e) {
             e.printStackTrace();
