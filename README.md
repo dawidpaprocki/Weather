@@ -15,9 +15,9 @@ This application created for receiving information about Air Pollution and Weath
 
 ## Screenshots
 Main page with information about Air condition.
-![Example screenshot](./img/Capture.jpg)
+![Example screenshot](./img/Capture.JPG)
 You can chose City, application receiving information form JSON file with coordination of city name.
-![Example screenshot](./img/Capture3.jpg)
+![Example screenshot](./img/Capture3.JPG)
 
 Last update add forecast
 ![Example screenshot](./img/Capture2.jpg)
