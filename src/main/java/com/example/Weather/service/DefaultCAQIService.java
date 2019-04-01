@@ -17,7 +17,6 @@ public class DefaultCAQIService implements GetCAQIService {
                 resultListOfIndexValue.add(Double.parseDouble(index.getValue()));
             }
         });
-        getCAQIColors(data,listOfIndexes );
         return resultListOfIndexValue.toArray(new Double[0]);
     }
 
