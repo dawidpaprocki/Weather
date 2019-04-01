@@ -45,7 +45,7 @@ To-do list:
 Project is: _in progress_
 A lot of things to do and improvement.
 ## Inspiration
-Add here credits. Project inspired by https://airly.eu which provide me API for this application.
+Project inspired by https://airly.eu which provide me API for this application.
 
 ## Contact
 Created by Dawid Paprocki [Linkedin](https://www.linkedin.com/in/dawid-paprocki/)
