@@ -15,12 +15,12 @@ This application created for receiving information about Air Pollution and Weath
 
 ## Screenshots
 Main page with information about Air condition.
-![Example screenshot](./img/Capture.jpg)
+![General application](./img/Capture.JPG)
 You can chose City, application receiving information form JSON file with coordination of city name.
-![Example screenshot](./img/Capture3.jpg)
+![Chose city](./img/Capture3.jpg)
 
 Last update add forecast
-![Example screenshot](./img/Capture2.jpg)
+![Forecast](./img/Capture2.JPG)
 
 ## Technologies
 * Spring Boot - version 2.0.5
@@ -45,7 +45,7 @@ To-do list:
 Project is: _in progress_
 A lot of things to do and improvement.
 ## Inspiration
-Add here credits. Project inspired by https://airly.eu which provide me API for this application.
+Project inspired by https://airly.eu which provide me API for this application.
 
 ## Contact
 Created by Dawid Paprocki [Linkedin](https://www.linkedin.com/in/dawid-paprocki/)
