@@ -7,6 +7,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Repository;
 
 import java.io.IOException;
+import java.io.InputStream;
+
 @Repository
 public class DefaultDataMapper implements DataMapper {
      private ObjectMapper mapper = new ObjectMapper();
@@ -16,8 +18,9 @@ public class DefaultDataMapper implements DataMapper {
     public Data MapObject(RequestHandler requestHandler,Double latitude,Double longitude  ) {
         String airlyApiUrl = UrlCreator(latitude, longitude);
         try {
-
-            return  mapper.readValue(requestHandler.getInputStream(airlyApiUrl,apiKey), Data.class);
+            InputStream inputStream = requestHandler.getInputStream(airlyApiUrl, apiKey);
+            Data data = mapper.readValue(requestHandler.getInputStream(airlyApiUrl, apiKey), Data.class);
+            return data;
         } catch (IOException e) {
             e.printStackTrace();
             return Data.builder().build();

@@ -18,7 +18,8 @@ public class DefaultDataService implements DataService {
     }
 
     public Data getData(Double latitude, Double longitude) {
-        return dataMapper.MapObject(new RequestHandler(), latitude, longitude);
+        Data data = dataMapper.MapObject(new RequestHandler(), latitude, longitude);
+        return data;
     }
 
     @Override
